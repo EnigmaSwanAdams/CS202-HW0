@@ -50,7 +50,7 @@ int main(int argc, const char** argv) {
 		cout << argv[2] << " celcius, in fahrenheit is " << C << endl;
 	}
 
-	else cout << "Incorect parameter given. Please use f or c to speficy the units of the starting tempertatur" << endl;
+	else cout << "Incorect parameter given. Please use f or c to speficy the units of the starting temperature" << endl;
 	
 	return  0; 
 }
