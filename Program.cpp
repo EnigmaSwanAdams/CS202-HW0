@@ -15,13 +15,41 @@
 #include <string>
 using std::string;
 using std::stod;
+using std::endl;
+using std::cout;
+using std::strtod;
 
-double FtoC(double F) {
+
+ // converts const char pointer fahrenheit value to double celsius value
+double cpp_ftoc(const char* str){ 
+	double F = stod(str);
 	return (F - 32) * (5 / 9);
 }
 
-int main(int argc, const char** argv) {
-	string strF = argv[1]; // get F value from comand line 
-	double F = stod(strF); // convert the stirng F value to a double
-	return  FtoC(F); // convert F to C and return it
+
+//converts const char pointer celcius value to double fahrenheit value
+double cpp_ctof(const char* str) {
+	int* p = NULL;
+	double C = strtod(str, NULL);
+	return (9 / 5) * C + 32;
+}
+
+
+// takes the file name 
+// then f or c to specify which was given (if given f it will convert fahrenheight to celcius and vice versa)
+// and the value to be converted
+int main(int argc, const char** argv) {  
+	if (argv[1] == "f" or argv[1] == "F") {
+		double F = cpp_ctof(argv[2]);
+		cout << argv[2] << " in fahreneit is " << F << endl;
+	}
+
+	else if (argv[1] == "c" or argv[1] == "C") {
+		double C = cpp_ftoc(argv[2]);
+		cout << argv[2] << " in celcius is " << C << endl;
+	}
+
+	else cout << "Incorect parameter given. Please use f or c to speficy the units of the starting tempertatur" << endl;
+	
+	return  0; 
 }
