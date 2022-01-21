@@ -39,14 +39,15 @@ double cpp_ctof(const char* str) {
 // then f or c to specify which was given (if given f it will convert fahrenheight to celcius and vice versa)
 // and the value to be converted
 int main(int argc, const char** argv) {  
-	if (argv[1] == "f" or argv[1] == "F") {
-		double F = cpp_ctof(argv[2]);
-		cout << argv[2] << " in fahreneit is " << F << endl;
-	}
 
-	else if (argv[1] == "c" or argv[1] == "C") {
+	if (*argv[1] == 'f' or *argv[1] == 'F') {
 		double C = cpp_ftoc(argv[2]);
 		cout << argv[2] << " in celcius is " << C << endl;
+	}
+
+	else if (*argv[1] == 'c' or *argv[1] == 'C') {
+		double C = cpp_ctof(argv[2]);
+		cout << argv[2] << " in fahrenheit is " << C << endl;
 	}
 
 	else cout << "Incorect parameter given. Please use f or c to speficy the units of the starting tempertatur" << endl;
