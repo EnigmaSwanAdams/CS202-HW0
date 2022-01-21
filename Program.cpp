@@ -11,7 +11,17 @@
 */
 
 
+#include <iostream>
+#include <string>
+using std::string;
+using std::stod;
 
-int main() {
-	return 0;
+double FtoC(double F) {
+	return (F - 32) * (5 / 9);
+}
+
+int main(int argc, const char** argv) {
+	string strF = argv[1]; // get F value from comand line 
+	double F = stod(strF); // convert the stirng F value to a double
+	return  FtoC(F); // convert F to C and return it
 }
